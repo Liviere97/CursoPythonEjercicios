@@ -49,7 +49,7 @@ print(f'PROMEDIO: {average: .2f} - {"APROBADO" if average > 6 else "REPROBADO"}'
 print("===============================")
 print("USANDO EL WHILE")
 
-# Script to greet people. The program will stop when the user says S, if the option entered for the user is invalid, we have a nested while.
+
 opt = 0
 while opt != 'S':
   name = input("Por tu nombre pa saludarte, compa: ")

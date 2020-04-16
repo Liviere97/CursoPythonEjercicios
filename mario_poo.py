@@ -1,71 +1,76 @@
 import random
 
-class MarioBros:
-    personajes = ['normal', 'grande', 'fuego']
-    def __init__(self, vidas, monedas, personaje):
+class MarioBross:
+
+    #Constructor
+    personajes=['normal','grande' , 'fuego']
+    def _init_(self ,vidas , monedas , personaje ):
         self.vidas = vidas
         self.monedas = monedas
         self.personaje = personajes[personaje-1]
 
     def get_actual_status(self):
-        print('No. de vidas:', self.vidas)
-        print('No. de monedas:', self.monedas)
-        print('Personaje actual:', self.personaje)
+        print ('No.vidas ', self.vidas)
+        print('No.monedas:', self.monedas)
+        print('personaje actual:',self.personaje)
 
     def killed(self):
-        self.vidas -= 1
-        self.personaje = self.personajes[0]
-        print('Amá, me morí')
-        if self.vidas == 0:
-            print('Gracias por jugar, F')
+        self.vidas =- 1
+        self.personaje = self.personajes [0]
+        print ('me mori')
+        if self.vidas ==0:
+            print('gracias por jugar , F')   
 
     def eat_green_mushroom(self):
         self.vidas += 1
-        print('Tengo una oportunidad más pa morirme')
+        print('tengo una oportunidad mas pa morir')
 
     def get_coin(self):
-        self.monedas += 1
+        self.monedas +=1
         print("+1 moneda")
-        if self.monedas == 100:
+        if self.monedas ==100 :
             self.eat_green_mushroom()
             monedas = 0
-
     def eat_red_mushroom(self):
-        print("Estupefacientes color rojo")
+        print("estupefacientes color rojo")
         if self.personaje == self.personajes[0]:
             self.personaje = self.personajes[1]
 
+
     def eat_flower(self):
-        print("Florecita para el estomágo")
+        print("Florecita para el estomago")
         if self.personaje == self.personajes[0]:
             self.personaje = self.personajes[1]
         elif self.personaje == self.personajes[1]:
             self.personaje = self.personajes[2]
 
     def attacked_by_something(self):
-        print("Amá, me pegaron")
+        print("me pegaron")
         if self.personaje == self.personajes[2]:
             self.personaje = self.personajes[1]
         elif self.personaje == self.personajes[1]:
             self.personaje = self.personajes[0]
         elif self.personaje == self.personajes[0]:
-            self.killed()
+            self.killed()            
 
     def fall(self):
         print('Amá, me caí')
         self.killed()
 
+
+
 def main():
-    opc = 'S'
-    vidas = int(input('Ingresa el número de vidas actual: '))
-    monedas = int(input('Ingresa el número de monedas actual: '))
+    vidas = int (input('ingresa el numero de vidas actual')) 
+    monedas= int (input('ingresa el numero de monedas'))
     print('1.- Normal')
     print('2.- Grande')
-    print('3.- Fuego')
-    personaje = int(input('Ingresa el personaje de Mario actual: '))
-    mario_bros = MarioBros(vidas, monedas, personaje)
+    print('3.-Fuego')
+    personaje = int(input('ingresa el personaje de mario actual :'))
 
-    while (opc != 'N'):
+    mario_bros = MarioBross(vidas , monedas ,personaje)       
+
+
+    while (opc!= 'N'):
         random_option = random.randint(1, 7)
         if random_option == 1:
             mario_bros.eat_red_mushroom()

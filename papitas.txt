@@ -1,0 +1,2 @@
+name chetos|price 12.0|color naranja
+name churrumais|price 8.0|color rosa
